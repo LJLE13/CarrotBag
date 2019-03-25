@@ -1,0 +1,50 @@
+.wrapper {
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 20px;
+  }
+  
+.column {
+  flex: 0 0 350px;
+  background-color: rgba(0,0,0,0.3);
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height:100%;
+}
+
+.column__header {
+  flex: 1 0 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(255, 166, 77);
+  padding: 10px;
+  margin: -10px -10px 10px -10px;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.column__header__title {
+  padding: 5px 0 0 5px;
+}
+
+.column__remove {
+  background-color: transparent;
+  border: 1;
+  border-radius: 25%;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.column__inner {
+  overflow-y: auto;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.column__form {
+  padding: 10px 10px 0 10px;
+  border-top: 1px solid rgb(255, 166, 77);
+  
+}

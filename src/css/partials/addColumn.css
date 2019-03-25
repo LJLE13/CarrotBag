@@ -1,0 +1,47 @@
+.column__new {
+    flex: 0 0 350px;
+    height: 50px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+.column__new__form {
+    padding: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between; 
+}
+
+input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+label .label-text {
+    color: #9B9B9B;
+    cursor: text;
+    text-transform: uppercase;
+}
+
+.column__new__button {
+    background-color: transparent;
+    border: 1;
+    border-radius: 25%;
+    color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}

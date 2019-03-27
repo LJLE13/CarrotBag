@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Column from './Column';
+import ColumnList from './ColumnList';
 import AddColumn from './AddColumn';
 
 
@@ -77,19 +77,14 @@ class App extends Component {
 
   render() {
     return (
-      <main class="wrapper">
-        {this.state.columns.map( (column, index) =>
-          <Column 
-            name={column.name}
-            index={index}
-            id={column.id}
-            removeColumn={this.handleRemoveColumn}
-            cards={column.cards}
-            addCard={this.handleAddCard}
-            />
-        )}
-        <AddColumn AddColumn={this.handleAddColumn}/>
-      </main>
+        <main class="wrapper">
+            <ColumnList 
+              columns={this.state.columns}
+              removeColumn={this.handleRemoveColumn}
+              addCard={this.handleAddCard}
+              />
+          <AddColumn AddColumn={this.handleAddColumn}/>
+        </main>
     );
   }
 }

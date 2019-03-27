@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './Card';
+import CardList from './CardList';
 import AddCard from './AddCard';
 
 
@@ -17,18 +17,14 @@ class Column extends Component {
             <section class="column">
                 <div className="column__header">
                     <div className="column__header__title">
-                        Liam - { name }
+                        Column - { name }
                     </div>
                     <button className="column__remove" onClick={() => removeColumn(id)}>Remove</button>
                 </div>
                 <div class="column__inner">
-                    {cards.map( ( card, index ) => 
-                        <Card 
-                            name={card.name}
-                            index={index}
-                            id={card.id}
-                        />
-                    )}
+                    <CardList 
+                        cards={cards}
+                    />
                     <AddCard addCard={addCard} columnId={id}/>
                 </div>
             </section>

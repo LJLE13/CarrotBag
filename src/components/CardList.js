@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
 import { Consumer } from './Context'
-
 
 const CardList = (props) => {
     return (
@@ -12,6 +12,7 @@ const CardList = (props) => {
                         <Card 
                             cardIndex={index}
                             columnIndex={props.columnIndex}
+                            key={card.id.toString()}
                         />
                     )}
                 </React.Fragment>
@@ -20,4 +21,8 @@ const CardList = (props) => {
     );
 }
 
-export default CardList
+CardList.propTypes = {
+    columnIndex: PropTypes.number
+};
+
+export default CardList;

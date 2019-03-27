@@ -1,8 +1,14 @@
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Consumer } from './Context';
 
+class Card extends PureComponent {
 
-class Card extends Component {
+    static propTypes = {
+        cardIndex: PropTypes.number.isRequired,
+        columnIndex: PropTypes.number.isRequired
+    }
+
     render () {
         const {
             cardIndex,

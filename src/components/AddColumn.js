@@ -22,7 +22,6 @@ const AddColumn = () => {
                                     type="text"
                                     ref={nameInput}
                                     placeholder="Add new column" 
-                                    onfocus="this.placeholder=''"
                                     />
                                 <button className="column__new__button">Add</button>
                             </label>
@@ -33,6 +32,5 @@ const AddColumn = () => {
         </Consumer>
     );
 }
-
 
 export default AddColumn;

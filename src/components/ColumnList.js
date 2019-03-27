@@ -8,7 +8,10 @@ const ColumnList = () => {
             { ({ columns }) => (
                 <React.Fragment>
                     { columns.map( (column, index) =>
-                        <Column index={index} />
+                        <Column 
+                        index={index}
+                        key={column.id.toString()}
+                         />
                     )}
                 </React.Fragment>
             )}
@@ -16,4 +19,3 @@ const ColumnList = () => {
         )}
 
 export default ColumnList;
-

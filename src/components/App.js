@@ -4,7 +4,7 @@ import AddColumn from './AddColumn';
 
 const App = () => {
   return (
-    <main class="carrot-bag">
+    <main className="carrot-bag">
       <ColumnList />
       <AddColumn />
     </main>

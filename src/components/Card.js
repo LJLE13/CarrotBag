@@ -1,21 +1,25 @@
 import React, {Component} from 'react';
+import { Consumer } from './Context';
 
 
 class Card extends Component {
     render () {
         const {
-            name,
-            id,
-            index
+            cardIndex,
+            columnIndex
         } = this.props
 
         return (
-            <article class="card">
-                <a href="#">
-                    <p class="card__title">Card name is {name}</p>
-                </a>
-                <dialog class="card__full">Hello</dialog>
-            </article>
+            <Consumer>
+                { ({ columns }) => (
+                    <article className="card">
+                        <a href="#">
+                            <p className="card__title">Card name is { columns[columnIndex].cards[cardIndex].name }</p>
+                        </a>
+                        <dialog className="card__full">Hello</dialog>
+                    </article>
+                )}
+            </Consumer>
         );
     }
 }

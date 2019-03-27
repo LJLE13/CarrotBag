@@ -1,20 +1,18 @@
 import React from 'react';
 import Column from './Column';
+import { Consumer } from './Context';
 
-const ColumnList = (props) => {
+const ColumnList = () => {
     return (
-        <React.Fragment>
-            {props.columns.map( (column, index) =>
-                <Column 
-                  name={column.name}
-                  index={index}
-                  id={column.id}
-                  removeColumn={props.removeColumn}
-                  cards={column.cards}
-                  addCard={props.addCard}
-                  />
+        <Consumer>
+            { ({ columns }) => (
+                <React.Fragment>
+                    { columns.map( (column, index) =>
+                        <Column index={index} />
+                    )}
+                </React.Fragment>
             )}
-        </React.Fragment>
+        </Consumer>
         )}
 
 export default ColumnList;

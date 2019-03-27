@@ -1,34 +1,43 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Consumer } from './Context'
 
 class AddCard extends Component {
 
-    state = {
-        value: ''
-    };
-
     nameInput = React.createRef();
-    
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.addCard(this.nameInput.current.value, this.props.columnId);
-        e.currentTarget.reset();
-    }
 
     render() {
+        const { columnIndex } = this.props;
+
         return (
-            <form className="column__form" onSubmit={this.handleSubmit}>
-                <label>
-                    <input 
-                        type="text"
-                        ref={this.nameInput}
-                        placeholder="Add new card" 
-                        onfocus="this.placeholder=''"
-                        />
-                    <button className="column__new__button">Add</button>
-                </label>
-            </form>
+            <Consumer>
+                {({ actions }) => {
+                    const handleSubmit = (e) => {
+                        e.preventDefault();
+                        actions.addCard(this.nameInput.current.value, columnIndex);
+                        e.currentTarget.reset();
+                    }
+    
+                    return (
+                        <form className="column__form" onSubmit={handleSubmit}>
+                            <label>
+                                <input 
+                                    type="text"
+                                    ref={this.nameInput}
+                                    placeholder="Add new card" 
+                                    onfocus="this.placeholder=''"
+                                    />
+                                <button className="column__new__button">Add</button>
+                            </label>
+                        </form>
+                    );
+                }}
+            </Consumer>
         );
     }
 }
+    
+    
+    
+
 
 export default AddCard;

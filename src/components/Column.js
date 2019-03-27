@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import CardList from './CardList';
 import AddCard from './AddCard';
+import { Consumer } from './Context';
 
 
 class Column extends Component {
     render() {
-        const {
-            name,
-            id,
-            index,
-            removeColumn,
-            cards,
-            addCard
-        } = this.props
+        const { index } = this.props
         return (
-            <section class="column">
-                <div className="column__header">
-                    <div className="column__header__title">
-                        Column - { name }
-                    </div>
-                    <button className="column__remove" onClick={() => removeColumn(id)}>Remove</button>
-                </div>
-                <div class="column__inner">
-                    <CardList 
-                        cards={cards}
-                    />
-                    <AddCard addCard={addCard} columnId={id}/>
-                </div>
-            </section>
+            <Consumer>
+                { ({ columns, actions }) => (
+                    <section class="column">
+                        <div className="column__header">
+                            <div className="column__header__title">
+                                Column - { columns[index].name }
+                            </div>
+                            <button className="column__remove" onClick={() => actions.removeColumn(columns[index].id)}>Remove</button>
+                        </div>
+                        <div class="column__inner">
+                            <CardList columnIndex={ index } />
+                            <AddCard columnIndex={ index }/>
+                        </div>
+                    </section>
+                )}
+            </Consumer>
         );
     }
 }

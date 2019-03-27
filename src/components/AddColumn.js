@@ -1,36 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Consumer } from './Context';
 
-class AddColumn extends Component {
+const AddColumn = () => {
 
-    state = {
-        value: ''
-    };
-
-    nameInput = React.createRef();
+    const nameInput = React.createRef();
     
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.AddColumn(this.nameInput.current.value);
-        e.currentTarget.reset();
-    }
-    
-    render() {
-        return (
-            <section className="column__new">
-                <form className="column__new__form" onSubmit={this.handleSubmit}>
-                    <label>
-                        <input 
-                            type="text"
-                            ref={this.nameInput}
-                            placeholder="Add new column" 
-                            onfocus="this.placeholder=''"
-                            />
-                        <button className="column__new__button">Add</button>
-                    </label>
-                </form>
-            </section>
-        );
-    }
+    return (
+        <Consumer>
+            { ({ actions }) => {
+                const handleSubmit = (e) => {
+                    e.preventDefault();
+                    actions.addColumn(nameInput.current.value);
+                    e.currentTarget.reset();
+                }
+                
+                return (
+                    <section className="column__new">
+                        <form className="column__new__form" onSubmit={handleSubmit}>
+                            <label>
+                                <input 
+                                    type="text"
+                                    ref={nameInput}
+                                    placeholder="Add new column" 
+                                    onfocus="this.placeholder=''"
+                                    />
+                                <button className="column__new__button">Add</button>
+                            </label>
+                        </form>
+                    </section>
+                );
+            }}
+        </Consumer>
+    );
 }
+
 
 export default AddColumn;

@@ -1,34 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { Consumer } from './Context'
 
-class AddCard extends Component {
+const AddCard = (props) => {
 
-    state = {
-        value: ''
-    };
+    const nameInput = React.createRef();
 
-    nameInput = React.createRef();
-    
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.addCard(this.nameInput.current.value, this.props.columnId);
-        e.currentTarget.reset();
-    }
+    return (
+        <Consumer>
+            {({ actions }) => {
+                const handleSubmit = (e) => {
+                    e.preventDefault();
+                    actions.addCard(nameInput.current.value, props.columnIndex);
+                    e.currentTarget.reset();
+                }
 
-    render() {
-        return (
-            <form className="column__form" onSubmit={this.handleSubmit}>
-                <label>
-                    <input 
-                        type="text"
-                        ref={this.nameInput}
-                        placeholder="Add new card" 
-                        onfocus="this.placeholder=''"
-                        />
-                    <button className="column__new__button">Add</button>
-                </label>
-            </form>
-        );
-    }
+                return (
+                    <form className="column__form" onSubmit={handleSubmit}>
+                        <label>
+                            <input 
+                                type="text"
+                                ref={nameInput}
+                                placeholder="Add new card" 
+                                />
+                            <button className="column__new__button">Add</button>
+                        </label>
+                    </form>
+                );
+            }}
+        </Consumer>
+    );
 }
 
 export default AddCard;

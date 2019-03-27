@@ -1,19 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
-
+import { Consumer } from './Context'
 
 const CardList = (props) => {
     return (
-        <React.Fragment>
-            {props.cards.map( ( card, index ) => 
-                <Card 
-                    name={card.name}
-                    index={index}
-                    id={card.id}
-                />
+        <Consumer>
+            { ({ columns }) => (
+                <React.Fragment>
+                    { columns[props.columnIndex].cards.map( ( card, index ) => 
+                        <Card 
+                            cardIndex={index}
+                            columnIndex={props.columnIndex}
+                            key={card.id.toString()}
+                        />
+                    )}
+                </React.Fragment>
             )}
-        </React.Fragment>
+        </Consumer>
     );
 }
 
-export default CardList
+CardList.propTypes = {
+    columnIndex: PropTypes.number
+};
+
+export default CardList;

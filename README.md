@@ -66,3 +66,24 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Heroku Deployment
+
+Currently the build script relies on a heroku account linked to the project (Aarons atm)
+
+To run the scripts a heroku account is required
+
+And heroku CLI is installed as outlined  in 
+https://devcenter.heroku.com/articles/getting-started-with-nodejs
+
+To create a named heroku app (e.g. carrot-master-1) based off the master branch run
+```
+./provision_app.sh carrot-master-1
+```
+
+The delete_app script takes in the app name to
+
+```
+./delete_app.sh carrot-master-1
+```
+

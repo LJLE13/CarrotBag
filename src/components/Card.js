@@ -17,9 +17,9 @@ class Card extends PureComponent {
 
         return (
             <Consumer>
-                { ({ columns }) => (
+                { ({ columns, actions }) => (
                     <article className="card">
-                        <a href="#">
+                        <a href="#" onClick={() => actions.removeCard(columnIndex, columns[columnIndex].cards[cardIndex].id)}>
                             <p className="card__title">Card name is { columns[columnIndex].cards[cardIndex].name }</p>
                         </a>
                         <dialog className="card__full">Hello</dialog>

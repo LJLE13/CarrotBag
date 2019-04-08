@@ -42,7 +42,6 @@ export class Provider extends Component {
     var docRef = firebase.firestore().collection("columns").doc("new-columns-id")
     docRef.get().then((documentSnapshot) => {
       if (documentSnapshot.exists) {
-        console.log(documentSnapshot.data());
         this.setState(documentSnapshot.data());
         console.log('DATA RETRIEVED');
       } else {

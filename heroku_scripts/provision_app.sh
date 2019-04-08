@@ -2,7 +2,7 @@
 
 # Create heroku app, with app name provided as a param
 # eg. ./provision_heroku_app.sh carrotbag-1
-heroku create $@
+heroku create $@  --org carrotbag
 heroku git:remote -a $@
 
 # Push to master branch to heroku

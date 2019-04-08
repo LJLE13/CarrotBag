@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-heroku destroy $@ --confirm $@
+heroku destroy $@ --org carrotbag --confirm $@

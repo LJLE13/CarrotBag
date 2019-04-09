@@ -1,6 +1,6 @@
 #!/usr/bin/env bash#
 
-# Create heroku app, with app name, and branch provided as params
+# Create heroku app, with app name provided as param
 # eg. ./provision_heroku_app.sh carrotbag-1
 
 # Args:

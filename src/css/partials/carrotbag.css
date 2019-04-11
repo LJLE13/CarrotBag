@@ -1,0 +1,17 @@
+.carrotbag {
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    
+
+}
+
+.carrotbag__header {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 10px 0 20px 20px;
+    background: #b35900 linear-gradient( #cc6600, #b35900);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    flex: 0 0 auto;
+
+}

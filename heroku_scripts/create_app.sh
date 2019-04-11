@@ -7,5 +7,5 @@
 # $1 = Heroku appname
 
 echo "### Heroku App name: $1 ###"
-heroku create $1  --org carrotbag
+heroku create $1
 heroku git:remote -a $1

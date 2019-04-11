@@ -12,6 +12,9 @@
     "react-scripts": "2.1.8",
     "uuid": "3.3.2"
   },
+  "devDependencies": {
+    "firebase-server": "^1.0.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

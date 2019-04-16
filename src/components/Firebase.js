@@ -13,7 +13,6 @@ let firebaseApp = null
 
 Object.keys(config).forEach((key) => {
   let val = config[key]
-  console.log(val)
   if (val === undefined) {
     console.log(`MISSING ENV VAR: ${key}`)
     missingVars.push(key)

@@ -7,5 +7,24 @@ const config = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 }
-firebase.initializeApp(config)
-export default firebase
+
+let missingVars = []
+let firebaseApp = null
+
+Object.keys(config).forEach((key) => {
+  let val = config[key]
+  console.log(val)
+  if (val === undefined) {
+    console.log(`MISSING ENV VAR: ${key}`)
+    missingVars.push(key)
+  }
+})
+
+if (missingVars.length === 0) {
+  firebaseApp = firebase.initializeApp(config)
+} else {
+  console.log(`Did not connect to Firebase because there are missing firebase environment variables:`)
+  console.log(missingVars)
+}
+
+export default firebaseApp

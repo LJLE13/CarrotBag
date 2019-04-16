@@ -21,4 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.env.development
+
+# Supply your own env vars with this file locally
+.env.development.local

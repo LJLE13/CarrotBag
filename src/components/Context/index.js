@@ -34,20 +34,24 @@ export class Provider extends Component {
 
 
   writeColumnData = () => {
-    firebase.firestore().collection("columns").doc("new-columns-id").set(this.state);
-    console.log('DATA SAVED');
+    if (firebase != null) {
+      firebase.firestore().collection("columns").doc("new-columns-id").set(this.state);
+      console.log('DATA SAVED');
+    }
   }
 
   getColumnData = () => {
-    var docRef = firebase.firestore().collection("columns").doc("new-columns-id")
-    docRef.get().then((documentSnapshot) => {
-      if (documentSnapshot.exists) {
-        this.setState(documentSnapshot.data());
-        console.log('DATA RETRIEVED');
-      } else {
-        console.log('doc not found')
-      }
-    })
+    if (firebase != null) {
+      var docRef = firebase.firestore().collection("columns").doc("new-columns-id")
+      docRef.get().then((documentSnapshot) => {
+        if (documentSnapshot.exists) {
+          this.setState(documentSnapshot.data());
+          console.log('DATA RETRIEVED');
+        } else {
+          console.log('doc not found')
+        }
+      })
+    }
   }
 
   componentDidMount() {

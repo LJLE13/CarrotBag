@@ -87,3 +87,15 @@ The delete_app script takes in the app name to
 ./delete_app.sh carrot-master-1
 ```
 
+### Running locally
+
+To run this code locally using Firebase, you'll need to provide a `.env.development.local` file which exports the following environment variables:
+
+- REACT_APP_FIREBASE_API_KEY
+- REACT_APP_FIREBASE_AUTH_DOMAIN
+- REACT_APP_FIREBASE_DATABASE_URL
+- REACT_APP_FIREBASE_PROJECT_ID
+- REACT_APP_FIREBASE_STORAGE_BUCKET
+- REACT_APP_FIREBASE_MESSAGING_SENDER_ID
+
+If any of the variables cannot be loaded, the app will default to the React state

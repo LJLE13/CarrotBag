@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import firebase from '../Firebase';
 
 const uuidv4 = require('uuid/v4');
 const CarrotBagContext = React.createContext();
@@ -30,6 +31,38 @@ export class Provider extends Component {
       ]
     };
   };
+
+
+  writeColumnData = () => {
+    if (firebase != null) {
+      firebase.firestore().collection("columns").doc("new-columns-id").set(this.state);
+      console.log('DATA SAVED');
+    }
+  }
+
+  getColumnData = () => {
+    if (firebase != null) {
+      var docRef = firebase.firestore().collection("columns").doc("new-columns-id")
+      docRef.get().then((documentSnapshot) => {
+        if (documentSnapshot.exists) {
+          this.setState(documentSnapshot.data());
+          console.log('DATA RETRIEVED');
+        } else {
+          console.log('doc not found')
+        }
+      })
+    }
+  }
+
+  componentDidMount() {
+    this.getColumnData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state){
+      this.writeColumnData();
+    }
+  }
 
   handleAddColumn(name) {
     this.setState(prevState => {

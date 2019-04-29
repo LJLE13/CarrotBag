@@ -1,14 +1,14 @@
-import React from 'react';
-import ColumnList from './ColumnList';
-import AddColumn from './AddColumn';
+import React from 'react'
+import ColumnList from './ColumnList'
+import AddColumn from './AddColumn'
 
 const App = () => {
   return (
-    <main className="carrot-bag">
+    <main className='carrot-bag'>
       <ColumnList />
       <AddColumn />
     </main>
-  );
+  )
 }
 
-export default App;
+export default App

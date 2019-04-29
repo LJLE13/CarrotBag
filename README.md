@@ -69,23 +69,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Heroku Deployment
 
-Currently the build script relies on a heroku account linked to the project (Aarons atm)
+Currently the build script relies on a heroku account linked to the project
 
-To run the scripts a heroku account is required
 
-And heroku CLI is installed as outlined  in 
+Heroku CLI *must* be  installed as outlined in: 
 https://devcenter.heroku.com/articles/getting-started-with-nodejs
 
-To create a named heroku app (e.g. carrot-master-1) based off the master branch run
-```
-./provision_app.sh carrot-master-1
-```
-
-The delete_app script takes in the app name to
+To fully provision a new app instance, pointed to a specific code branch, the 
+`full_provision.sh` script can be called.
+For example to create new app `carrotbag-demo` based off the `master` branch use the following command:
 
 ```
-./delete_app.sh carrot-master-1
+./full_provision.sh carrotbag-demo master
 ```
+
+This uses some more granular scripts in the `heroku_scripts` folder.
 
 ### Running locally
 

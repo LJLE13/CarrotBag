@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import CardList from './CardList';
 import AddCard from './AddCard';
 import { Consumer } from './Context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDumpster } from '@fortawesome/free-solid-svg-icons'
+
 
 class Column extends PureComponent {
 
@@ -21,7 +24,7 @@ class Column extends PureComponent {
                             <div className="column__header__title">
                                 Column - { columns[index].name }
                             </div>
-                            <button className="column__remove" onClick={() => actions.removeColumn(columns[index].id)}>Remove</button>
+                            <button className="column__remove" onClick={() => actions.removeColumn(columns[index].id)}><FontAwesomeIcon icon={ faDumpster } /></button>
                         </div>
                         <div className="column__inner">
                             <CardList columnIndex={ index } />

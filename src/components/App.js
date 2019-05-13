@@ -5,8 +5,10 @@ import AddColumn from './AddColumn'
 const App = () => {
   return (
     <main className='carrot-bag'>
-      <ColumnList />
-      <AddColumn />
+      <div className='column-container'>
+        <ColumnList />
+        <AddColumn />
+      </div>
     </main>
   )
 }
